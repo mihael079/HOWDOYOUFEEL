@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Platform</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Link to Firebase SDKs -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore.js"></script>
+    <!-- Link to JavaScript file -->
+    <script type="module" src="script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Submission Platform</h2>
+        
+        <form id="submissionForm">
+            <!-- Username input -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <!-- Date input -->
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            
+            <!-- Thoughts textarea -->
+            <div class="form-group">
+                <label for="thoughts">Thoughts:</label>
+                <textarea id="thoughts" name="thoughts" rows="4" required></textarea>
+            </div>
+            
+            <!-- Emojis for emotion -->
+            <div class="form-group">
+                <label>How do you feel?</label>
+                <div class="emojis">
+                    <button type="button" class="emoji" onclick="selectEmoji('Happy')">😀</button>
+                    <button type="button" class="emoji" onclick="selectEmoji('Neutral')">😐</button>
+                    <button type="button" class="emoji" onclick="selectEmoji('Sad')">😞</button>
+                    <button type="button" class="emoji" onclick="selectEmoji('Angry')">😡</button>
+                    <button type="button" class="emoji" onclick="selectEmoji('Love')">😍</button>
+                </div>
+                <!-- Emotion input -->
+                <input type="hidden" id="emotion" name="emotion" required>
+            </div>
+            
+            <!-- Submit button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Add event listener to form submission -->
+    <script>
+        document.getElementById('submissionForm').addEventListener('submit', submitForm);
+    </script>
+</body>
+
+</html>
